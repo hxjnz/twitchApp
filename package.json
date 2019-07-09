@@ -1,0 +1,19 @@
+{
+  "name": "twitchapp",
+  "version": "1.0.0",
+  "description": "### This app is a practice from Udemy Course Modern react app lesson 16",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hxjnz/twitchApp.git"
+  },
+  "author": "EricHan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hxjnz/twitchApp/issues"
+  },
+  "homepage": "https://github.com/hxjnz/twitchApp#readme"
+}
