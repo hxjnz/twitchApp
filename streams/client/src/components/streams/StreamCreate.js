@@ -1,5 +1,7 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
+import { connect } from "react-redux";
+import { createStream } from "../../actions";
 
 class StreamCreate extends React.Component {
   renderError({ error, touched }) {
@@ -23,9 +25,9 @@ class StreamCreate extends React.Component {
     );
   };
 
-  onSubmit(formValues) {
-    console.log(formValues);
-  }
+  onSubmit = formValues => {
+    this.props.createStream(formValues);
+  };
 
   render() {
     return (
@@ -57,7 +59,15 @@ const validate = formValues => {
   return error;
 };
 
-export default reduxForm({
+// 整理redux form的引用并一次性导入到connect方法中
+const formWrapped = reduxForm({
   form: "streamCreate",
   validate: validate
 })(StreamCreate);
+
+// 把表格相关方法作为参数一次性导入，提高可读性
+// 把api方法传入connect就能从组建的props中调用
+export default connect(
+  null,
+  { createStream }
+)(formWrapped);

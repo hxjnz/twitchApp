@@ -1,3 +1,14 @@
 {
-  "streams": []
+  "streams": [
+    {
+      "title": "标题A",
+      "description": "内容A",
+      "id": 1
+    },
+    {
+      "title": "标题A",
+      "description": "内容A",
+      "id": 2
+    }
+  ]
 }
