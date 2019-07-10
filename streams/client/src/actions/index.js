@@ -1,5 +1,13 @@
 import streams from "../apis/streams";
-import { SIGN_IN, SIGN_OUT } from "./types";
+import {
+  SIGN_IN,
+  SIGN_OUT,
+  CREATE_STREAM,
+  FETCH_STREAMS,
+  FETCH_STREAM,
+  DELETE_STREAM,
+  EDIT_STREAM
+} from "./types";
 
 export const signIn = userId => {
   return {
@@ -16,5 +24,7 @@ export const signOut = () => {
 
 // 新建API POST 方法， 传入表格内容并异步存到数据库
 export const createStream = formValues => async dispatch => {
-  streams.post("/streams", formValues);
+  const response = await streams.post("/streams", formValues);
+
+  dispatch({ type: CREATE_STREAM, payload: response.data });
 };
