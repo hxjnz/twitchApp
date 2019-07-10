@@ -23,15 +23,16 @@ export const signOut = () => {
 };
 
 // 新建API POST 方法， 传入表格内容并异步存到数据库
-export const createStream = formValues => async dispatch => {
-  const response = await streams.post("/streams", formValues);
+export const createStream = formValues => async (dispatch, getState) => {
+  const { userId } = getState().auth;
+  const response = await streams.post("/streams", { ...formValues, userId });
 
   dispatch({ type: CREATE_STREAM, payload: response.data });
 };
 
 export const fetchStreams = formValues => async dispatch => {
-  const response = await streams.post("/streams");
-
+  const response = await streams.get("/streams");
+  console.log(response);
   dispatch({ type: FETCH_STREAMS, payload: response.data });
 };
 
